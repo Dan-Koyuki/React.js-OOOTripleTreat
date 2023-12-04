@@ -4,21 +4,19 @@ import App from './App';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import productsReducer, { productsFetch } from './features/productsSlice';
-import { productsApi } from './features/productsAPI';
-import cartReducer from './features/cartSlice';
+import cartReducer, { getTotals } from './features/cartSlice';
+import authReducer from './features/authSlice';
 
 const store = configureStore({
   reducer:{
     products: productsReducer,
     cart: cartReducer,
-    [productsApi.reducerPath]: productsApi.reducer
-  },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(productsApi.middleware)
+    auth: authReducer
   }
 })
 
-store.dispatch(productsFetch())
+store.dispatch(productsFetch());
+store.dispatch(getTotals());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

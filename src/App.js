@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Cart from './components/Cart';
 import Home from './components/Home';
 import NotFound from './components/NonFound';
+import Register from './components/auth/Register';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/not-found' element={<NotFound />} />
+          <Route path='/register' element={<Register />} />
           <Route path='*' element={<Navigate to='/not-found'/>}/>
         </Routes>
       </BrowserRouter>

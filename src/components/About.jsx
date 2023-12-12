@@ -4,6 +4,7 @@ const About = () => {
   const data = [
     {
       name: "Irwanto Danang Bahtiar",
+      nim: "1217050070",
       img: "https://wallpapercave.com/uwp/uwp4090074.png",
       contribution: [
         "Full Stack",
@@ -28,6 +29,7 @@ const About = () => {
             data?.map((member, index) => (
               <Member key={index}>
                 <h3>{member.name}</h3>
+                <p><strong>{member.nim}</strong></p>
                 <img src={member.img} alt={member.name} />
                 {member.contribution ? (
                   <>

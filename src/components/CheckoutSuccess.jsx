@@ -18,7 +18,7 @@ const CheckoutSuccess = () => {
 
   return (
     <Container>
-      <h2>Checkou Successful</h2>
+      <h2>Checkout Successful</h2>
       <p>Incase of any inqueries, contact the support at{''}
         <strong>dankoyuki398@gmail.com</strong>
       </p>

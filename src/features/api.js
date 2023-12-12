@@ -1,4 +1,4 @@
-export const url = "http://localhost:5000/api";
+export const url = "https://backend-ooo.vercel.app/api";
 
 export const setHeaders = () => {
   const headers = {

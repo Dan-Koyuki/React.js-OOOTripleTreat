@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import { url } from './api';
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -19,7 +20,7 @@ export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (values, {rejectWithValue}) => {
     try {
-      const token = await axios.post("http://localhost:5000/api/register", {
+      const token = await axios.post(`${url}/register`, {
         name: values.name,
         email: values.email,
         password: values.password
@@ -39,7 +40,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (values, {rejectWithValue}) => {
     try {
-      const token = await axios.post("http://localhost:5000/api/login", {
+      const token = await axios.post(`${url}/login`, {
         email: values.email,
         password: values.password
       });

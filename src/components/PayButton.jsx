@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { url } from '../features/api';
 
 const PayButton = ({cartItem}) => {
 
@@ -8,7 +9,7 @@ const PayButton = ({cartItem}) => {
 
   const handleCheckOut = () => {
     console.log(cartItem);
-    axios.post('http://localhost:5000/api/stripe/create-checkout-session', {
+    axios.post(`${url}/stripe/create-checkout-session`, {
       cartItem,
       userID: user._id,
     }).then((res) => {

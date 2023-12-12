@@ -12,7 +12,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action){
-      const itemIndex = state.cartItem.findIndex(item => item.id === action.payload.id);
+      const itemIndex = state.cartItem.findIndex(item => item._id === action.payload._id);
 
       if (itemIndex >= 0){
         state.cartItem[itemIndex].cartQuantity += 1;
@@ -31,7 +31,7 @@ const cartSlice = createSlice({
     },
     removeFromCart(state, action){
       const nextCartItems = state.cartItem.filter(
-        item => item.id !== action.payload.id
+        item => item._id !== action.payload._id
       )
 
       state.cartItem = nextCartItems;
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
     },
     decreaseCart(state, action){
       const itemIndex = state.cartItem.findIndex(
-        item => item.id === action.payload.id
+        item => item._id === action.payload._id
       )
 
       if(state.cartItem[itemIndex].cartQuantity > 1){

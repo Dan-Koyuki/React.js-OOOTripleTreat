@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, getTotals } from '../features/cartSlice';
 
 const Home = () => {
-  const { items: products, status } = useSelector((state) => state.products);
+  const { items: data, status } = useSelector((state) => state.products);
+  console.log(data);
   const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
@@ -22,11 +23,11 @@ const Home = () => {
         <>
           <h2>New Arrivals</h2>
           <div className="products">
-            {products &&
-              products?.map((product) => (
-                <div key={product.id} className="product">
+            {data &&
+              data?.map((product) => (
+                <div key={product._id} className="product">
                   <h3>{product.name}</h3>
-                  <img src={product.image} alt={product.name} />
+                  <img src={product.image.url} alt={product.name} />
                   <div className="details">
                     <span>{product.desc}</span>
                     <span className="price">${product.price}</span>

@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../features/authSlice";
+import { loginUser } from "../../features/authSlice";
 import { StyledForm } from "./StyledForm";
 
-const Register = () => {
+const Login = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -19,25 +19,19 @@ const Register = () => {
   }, [auth._id, navigate])
 
   const [user, setUser] = useState({
-    name: "",
     email: "",
     password: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(registerUser(user));
+    dispatch(loginUser(user));
   };
 
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
-        <h2>Register</h2>
-        <input
-          type="text"
-          placeholder="username"
-          onChange={(e) => setUser({ ...user, name: e.target.value })}
-        />
+        <h2>Login</h2>
         <input
           type="email"
           placeholder="example@mail.com"
@@ -48,16 +42,16 @@ const Register = () => {
           placeholder="password"
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
-        <button>{auth.registerStatus === "pending" ? (
+        <button>{auth.loginStatus === "pending" ? (
           "Submitting.."
-        ) : "Register"}</button>
+        ) : "Login"}</button>
 
-        {auth.registerStatus === "rejected" ? (
-          <p>{auth.registerError}</p>
+        {auth.loginStatus === "rejected" ? (
+          <p>{auth.loginError}</p>
         ) : null}
       </StyledForm>
     </>
   );
 };
 
-export default Register;
+export default Login;

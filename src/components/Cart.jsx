@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from "../features/cartSlice";
+import PayButton from "./PayButton";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  console.log("cart item:", cart.cartItem);
 
   useEffect(() => {
     dispatch(getTotals());
@@ -62,9 +65,9 @@ const Cart = () => {
           </div>
           <div className="cart-items">
             {cart.cartItem?.map(item => (
-              <div className="cart-item" key = {item.id}>
+              <div className="cart-item" key = {item._id}>
                 <div className="cart-product">
-                  <img src={item.image} alt={item.name} />
+                  <img src={item.image.url} alt={item.name} />
                   <div>
                     <h3>{item.name}</h3>
                     <p>{item.desc}</p>
@@ -89,7 +92,7 @@ const Cart = () => {
                 <span className="amount">${cart.cartTotalAmount}</span>
               </div>
               <p>Taxes and shipping calculated at checkout</p>
-              <button>Check Out</button>
+              <PayButton cartItem = {cart.cartItem}/>
               <div className="continue-shopping">
                 <Link to={"/"}>
                   <svg

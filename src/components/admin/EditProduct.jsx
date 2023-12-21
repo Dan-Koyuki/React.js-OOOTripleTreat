@@ -21,6 +21,9 @@ export default function EditProduct({prodId}) {
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [desc, setDesc] = React.useState("");
+  const [category, setCat] = React.useState("");
+  const [brand, setBrand] = React.useState("");
+  const [warranty, setWar] = React.useState("");
 
   const handleProductImageUpload = (e) => {
     const file = e.target.files[0];
@@ -51,7 +54,10 @@ export default function EditProduct({prodId}) {
         ...currentProd,
         name: name,
         price: price,
-        desc: desc
+        desc: desc,
+        category: category,
+        brand: brand,
+        warranty: warranty,
       }
     }))
   }
@@ -106,9 +112,26 @@ export default function EditProduct({prodId}) {
               <input
                 type="text"
                 required
-                placeholder="Short Description"
-                value={desc}
+                placeholder="brand"
+                onChange={(e) => setBrand(e.target.value)}
+              />
+              <input
+                type="text"
+                required
+                placeholder="category"
+                onChange={(e) => setCat(e.target.value)}
+              />
+              <input
+                type="text"
+                required
+                placeholder="desc"
                 onChange={(e) => setDesc(e.target.value)}
+              />
+              <input
+                type="text"
+                required
+                placeholder="warranty"
+                onChange={(e) => setWar(e.target.value)}
               />
               <PrimaryButton type="submit">
                 Submit

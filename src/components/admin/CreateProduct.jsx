@@ -13,6 +13,9 @@ const CreateProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [desc, setDesc] = useState("");
+  const [category, setCat] = useState("");
+  const [brand, setBrand] = useState("");
+  const [warranty, setWar] = useState("");
 
   const handleProductImageUpload = (e) => {
     const file = e.target.files[0];
@@ -40,7 +43,10 @@ const CreateProduct = () => {
       name,
       price,
       desc,
-      image: productImg
+      image: productImg,
+      category,
+      brand,
+      warranty
     }))
 
     navigate('/admin-dashboard/products/create-products');
@@ -71,8 +77,26 @@ const CreateProduct = () => {
         <input
           type="text"
           required
+          placeholder="brand"
+          onChange={(e) => setBrand(e.target.value)}
+        />
+        <input
+          type="text"
+          required
+          placeholder="category"
+          onChange={(e) => setCat(e.target.value)}
+        />
+        <input
+          type="text"
+          required
           placeholder="desc"
           onChange={(e) => setDesc(e.target.value)}
+        />
+        <input
+          type="text"
+          required
+          placeholder="warranty"
+          onChange={(e) => setWar(e.target.value)}
         />
         <PrimaryButton type="submit">
           Submit

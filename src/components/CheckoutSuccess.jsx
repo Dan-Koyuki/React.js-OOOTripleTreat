@@ -19,7 +19,7 @@ const CheckoutSuccess = () => {
   return (
     <Container>
       <h2>Checkout Successful</h2>
-      <p>Incase of any inqueries, contact the support at{''}
+      <p>Incase of any inqueries, contact the support at {''}
         <strong>dankoyuki398@gmail.com</strong>
       </p>
     </Container>

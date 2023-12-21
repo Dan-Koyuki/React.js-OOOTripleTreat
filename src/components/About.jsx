@@ -11,6 +11,15 @@ const About = () => {
         "Documentation (Diagrams, Product Owner, Scrum Master)",
         "Testing",
       ],
+    },
+    {
+      name: "Fayza Fatimattuzahra",
+      nim: "1217050055",
+      img: "https://wallpapercave.com/uwp/uwp4090074.png",
+      contribution: [
+        "Testing",
+        "Documentation (BAB 1 A)",
+      ],
     }
   ];
 

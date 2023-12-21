@@ -113,24 +113,28 @@ export default function EditProduct({prodId}) {
                 type="text"
                 required
                 placeholder="brand"
+                value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               />
               <input
                 type="text"
                 required
                 placeholder="category"
+                value={category}
                 onChange={(e) => setCat(e.target.value)}
               />
               <input
                 type="text"
                 required
                 placeholder="desc"
+                value={desc}
                 onChange={(e) => setDesc(e.target.value)}
               />
               <input
                 type="text"
                 required
                 placeholder="warranty"
+                value={warranty}
                 onChange={(e) => setWar(e.target.value)}
               />
               <PrimaryButton type="submit">

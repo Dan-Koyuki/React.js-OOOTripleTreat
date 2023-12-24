@@ -15,11 +15,17 @@ const About = () => {
     {
       name: "Fayza Fatimattuzahra",
       nim: "1217050055",
-      img: "https://wallpapercave.com/uwp/uwp4090074.png",
+      img: "",
       contribution: [
         "Testing",
         "Documentation (BAB 1 A)",
       ],
+    },
+    {
+      name: 'Megan Medellin',
+      nim: '1217050078',
+      img: '',
+      contribution: ['Documentation (Rencana Proyek, Diagram, Bab 2, Bab 3)', 'Testing Manual']
     }
   ];
 
